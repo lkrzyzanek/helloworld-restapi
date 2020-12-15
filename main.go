@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-var version = 0
+var version = 2.0
 var responseString = `{
   "message": "hello world", 
   "version": %v, 
