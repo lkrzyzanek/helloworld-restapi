@@ -11,6 +11,14 @@ On any request it returns
 }
 ```
 
+## How to run
+
+```shell
+docker run --rm -p 8080:8080 helloworld-restapi:latest
+```
+you can change `latest` to `1.0` or `2.0` to simulate different APIs.
+
+
 ## Run application locally
 
 Build app
