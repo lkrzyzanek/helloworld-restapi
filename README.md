@@ -6,7 +6,8 @@ On any request it returns
 
 ```json
 {
-  "message": "hello world"
+  "message": "hello world",
+  "version": 0
 }
 ```
 
