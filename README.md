@@ -7,7 +7,7 @@ On any request it returns
 ```json
 {
   "message": "hello world",
-  "version": 0
+  "version": 1.0
 }
 ```
 
@@ -36,13 +36,13 @@ Run
 ## Run as local docker image
 
 ```shell
-docker build . -t helloworld-restapi:latest
+docker build . -t helloworld-restapi:1.0
 ```
 
 To run the image execute
 
 ```
-docker run --rm -p 8080:8080 helloworld-restapi:latest
+docker run --rm -p 8080:8080 helloworld-restapi:1.0
 ```
 
 To the image try this URLs
