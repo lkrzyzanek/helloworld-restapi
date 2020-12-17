@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 )
@@ -10,7 +11,16 @@ type server struct{}
 func (s *server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message": "hello world", "version": 0}`))
+	data :=
+		`{
+  "message": "hello world", 
+  "version": 0, 
+  "request": {
+    "host": "%s", 
+    "url": "%s",
+  }
+}`
+	fmt.Fprintf(w, data, r.Host, r.URL)
 }
 
 func main() {
