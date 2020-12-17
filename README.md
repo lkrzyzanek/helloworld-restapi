@@ -49,3 +49,9 @@ To the image try this URLs
 * http://localhost:8080/
 * http://localhost:8080/test
 
+## Run on k8s
+
+```shell
+kubectl create namespace restapi1
+kubectl -n restapi1 apply -f k8s/deployment.yaml
+```
