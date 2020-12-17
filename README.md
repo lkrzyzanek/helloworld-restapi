@@ -49,9 +49,16 @@ To the image try this URLs
 * http://localhost:8080/
 * http://localhost:8080/test
 
-## Run on k8s
+## Run on Kubernetes
 
+predefined deployment.yaml
 ```shell
-kubectl create namespace restapi1
-kubectl -n restapi1 apply -f k8s/deployment.yaml
+kubectl create namespace restapi
+kubectl -n restapi apply -f k8s/deployment.yaml
+```
+
+or manually
+```shell
+kubectl -n restapi create deployment restapi --image lkrzyzanek/helloworld-restapi:latest
+kubectl -n restapi expose deployment restapi --type=NodePort --port=8080
 ```
