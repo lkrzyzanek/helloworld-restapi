@@ -4,12 +4,14 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 var version = 1.0
 var responseString = `{
   "message": "hello world", 
   "version": %v, 
+  "pod": %s,
   "request": {
     "host": "%s", 
     "url": "%s",
@@ -20,9 +22,10 @@ var responseString = `{
 type server struct{}
 
 func (s *server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	pod, _ := os.Hostname()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, responseString, version, r.Host, r.URL)
+	fmt.Fprintf(w, responseString, version, pod, r.Host, r.URL)
 }
 
 func main() {
